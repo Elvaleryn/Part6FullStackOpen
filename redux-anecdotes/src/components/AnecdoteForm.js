@@ -3,14 +3,15 @@ import { connect } from 'react-redux'
 import { createAnecdote } from '../reducers/anecdoteReducer'
 import { setMessage } from '../reducers/notificationReducer'
 
+
 const AnecdoteForm = (props) => {
-    const addAnecdote = (event) => {
+    const addAnecdote = async (event) => {
         event.preventDefault()
         const content = event.target.anecdote.value
         event.target.anecdote.value = ''
         props.createAnecdote(content)
-    		props.setMessage(`you added anecdote '${content}'`, 5)
-    }
+        props.setMessage(`you added anecdote '${content}'`, 3)
+      }
     return (
         <div>
             <form onSubmit={addAnecdote}>
